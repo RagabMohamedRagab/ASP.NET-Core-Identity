@@ -5,10 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="DAL\Domains\" />
+    <Compile Remove="DAL\Domains\**" />
+    <Content Remove="DAL\Domains\**" />
+    <EmbeddedResource Remove="DAL\Domains\**" />
+    <None Remove="DAL\Domains\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
-    <Folder Include="Views\" />
   </ItemGroup>
 
   <ItemGroup>

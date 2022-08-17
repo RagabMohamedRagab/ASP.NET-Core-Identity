@@ -6621,11 +6621,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pc\\source\\repos\\Identity\\Identity\\Identity.csproj",
+      "projectUniqueName": "C:\\Users\\pc\\Desktop\\Identity\\Identity\\Identity.csproj",
       "projectName": "Identity",
-      "projectPath": "C:\\Users\\pc\\source\\repos\\Identity\\Identity\\Identity.csproj",
+      "projectPath": "C:\\Users\\pc\\Desktop\\Identity\\Identity\\Identity.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pc\\source\\repos\\Identity\\Identity\\obj\\",
+      "outputPath": "C:\\Users\\pc\\Desktop\\Identity\\Identity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

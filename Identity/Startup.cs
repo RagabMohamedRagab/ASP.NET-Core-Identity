@@ -41,7 +41,7 @@ namespace Identity {
             }
             else
             {
-                app.UseExceptionHandler("/Errors");
+                app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
