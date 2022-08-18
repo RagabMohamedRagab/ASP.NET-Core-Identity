@@ -2,6 +2,7 @@
 
 namespace Identity.Controllers {
     public class HomeController : Controller {
+        [HttpGet]
         public IActionResult Register()
         {
             return View();

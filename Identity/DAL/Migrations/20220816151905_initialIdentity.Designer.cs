@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Identity.Migrations
+namespace Identity.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20220816151905_initialIdentity")]

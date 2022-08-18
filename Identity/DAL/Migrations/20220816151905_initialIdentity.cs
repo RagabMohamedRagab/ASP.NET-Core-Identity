@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Identity.Migrations
+namespace Identity.DAL.Migrations
 {
     public partial class initialIdentity : Migration
     {
