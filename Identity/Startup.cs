@@ -53,7 +53,7 @@ namespace Identity {
             {
                 endpoints.MapControllerRoute(
                     name:"Identity",
-                    pattern:"{Controller}/{Action}/{id?}"
+                    pattern:"{Controller=Home}/{Action=Index}/{id?}"
                     );
             });
         }
