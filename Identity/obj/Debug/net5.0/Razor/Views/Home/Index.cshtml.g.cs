@@ -19,8 +19,15 @@ using Identity.DAL.ViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\pc\Desktop\Identity\Identity\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d7b167d42b6b728cd99097fcc65114d7c6aae560", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ad8834bdb1fd8da3e429aa643d420258859320ce", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc430d2a7da73aa030ba715f9cd9a9082027a927", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
