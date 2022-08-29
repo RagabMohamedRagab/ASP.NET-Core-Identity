@@ -61,5 +61,25 @@ namespace Identity.Controllers {
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RemmberMe, false);
+                if (user.Succeeded)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                ModelState.AddModelError(string.Empty, "Invalid Login");
+            }
+            return View(model);
+        }
     }
 }

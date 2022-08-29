@@ -2,7 +2,10 @@
 @{
     ViewData["Title"] = "Regsiter";
 }
-<h2 class="mt-3">Register</h2>
+<div>
+<h2 class="mt-3 " style="">Register</h2>
+<a asp-controller="Home" asp-action="login">Aready I have Account</a>
+</div>
 <hr>
 <form asp-area="" asp-controller="Home"  asp-action="Register" asp-antiforgery="true">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -25,6 +28,7 @@
     <input type="submit" class="btn btn-primary">
   </div>
 </form>
+
 @section Scripts{ 
     <partial name="_ValidationScriptsPartial"/>
 }

@@ -1,0 +1,40 @@
+﻿@model LoginVM;
+@{
+    ViewData["Title"] = "User Login";
+}
+ <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" asp-controller="Home" asp-action="Login" asp-antiforgery="true" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label asp-for="Email" class="text-info"></label><br>
+                                <input asp-for="Email" class="form-control">
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password"  class="text-info"></label><br>
+                                <input asp-for="Password" class="form-control">
+                                   <span asp-validation-for="Password"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RemmberMe" class="text-info"><span>@Html.DisplayNameFor(m=>m.RemmberMe)</span> <span><input  asp-for="RemmberMe"><span asp-validation-for="RemmberMe"></span></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" style="position: relative;left: 38%;">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a asp-controller="Home" asp-action="Register" class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @section Scripts{ 
+    <partial name="_ValidationScriptsPartial"/>
+}
