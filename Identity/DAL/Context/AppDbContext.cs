@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Identity.DAL.Domain_Modes;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Identity.DAL.Context {
@@ -7,7 +8,8 @@ namespace Identity.DAL.Context {
         {
         }
 
-
+        public virtual DbSet<Student> Students { get; set; }    
+        public virtual DbSet<Level> Levels  { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

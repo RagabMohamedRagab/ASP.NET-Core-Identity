@@ -1,0 +1,36 @@
+﻿@model IEnumerable<StudentVM>
+@{
+    ViewData["Title"] = "All-space-betweent";
+}
+
+<div class="mt-3" style="display:flex;justify-content:space-between">
+      <h2  style="color:#343a40">All Student </h2>
+      <a  class="btn btn-primary">Add Student</a>
+</div>
+<hr />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Level</th>
+      <th scope="col">Photo</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model)
+      {
+      <tr>
+      <th scope="row">@item.FullName</th>
+      <td>@item.Age</td>
+      <td>@item.Level</td>
+      <td>"~/"+@item.ImgUrl</td>
+      <td>
+          <a href="javascript:void()">Edit</a>
+      </td>
+    </tr>
+      }
+  </tbody>
+</table>

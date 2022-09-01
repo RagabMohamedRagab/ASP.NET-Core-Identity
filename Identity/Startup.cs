@@ -1,4 +1,6 @@
+using AutoMapper;
 using Identity.DAL.Context;
+using Identity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,7 +30,10 @@ namespace Identity {
             services.AddControllersWithViews();
             services.AddAuthentication();
             services.AddAuthorization();
+            services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<AppDbContext>(option => option.UseSqlServer(Configurtion.GetConnectionString("Identity")));
+            services.AddTransient<IStudentService, StudentService>();
+            
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 10;
