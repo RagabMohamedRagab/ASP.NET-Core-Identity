@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace Identity.DAL.ViewModel {
-    public class LeveVM {
+    public class LevelVM {
         [Required]
         public string Name { get; set; }
     }

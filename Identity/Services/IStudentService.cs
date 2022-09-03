@@ -4,7 +4,9 @@ using System.Collections.Generic;
 namespace Identity.Services {
     public interface IStudentService {
         int Create(StudentVM student);
-        IEnumerable<LeveVM> GetAllLevels();
+        int Create(LevelVM level);
+        int Create(GenderVM genderVM );
+        IEnumerable<LevelVM> GetAllLevels();
         IEnumerable<StudentVM> GetAllStudents();
 
     }

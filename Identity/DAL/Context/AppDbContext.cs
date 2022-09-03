@@ -10,6 +10,7 @@ namespace Identity.DAL.Context {
 
         public virtual DbSet<Student> Students { get; set; }    
         public virtual DbSet<Level> Levels  { get; set; }
+        public virtual DbSet<Gender> Genders  { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

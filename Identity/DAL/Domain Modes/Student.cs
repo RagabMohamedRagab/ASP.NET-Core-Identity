@@ -8,7 +8,9 @@ namespace Identity.DAL.Domain_Modes {
         public string Name { get; set; }
         public int Age { get; set; }
         public string ImgUrl { get; set; }
-        public string Gender { get; set; }
+        [ForeignKey(nameof(Gender))]
+        public int? GenderId { get; set; }
+        public virtual Gender Gender { get; set; }
         [ForeignKey(nameof(Level))]
         public int? StudentId { get; set; }
         public virtual Level Level { get; set; }

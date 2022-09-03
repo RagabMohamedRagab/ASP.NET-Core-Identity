@@ -36,5 +36,45 @@ namespace Identity.Controllers {
 
             return View(student);
         }
+        public IActionResult Levels()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Level()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public  IActionResult Level(LevelVM level)
+        {
+            if (ModelState.IsValid)
+            {
+                if(_studentService.Create(level) > 0)
+                {
+                    return RedirectToAction(nameof(Levels));
+                }
+            }
+            return View(level);
+        }
+        [HttpGet]
+        public IActionResult Gender()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Gender(GenderVM gender)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_studentService.Create(gender) > 0)
+                {
+                    return RedirectToAction(nameof(Levels));
+                }
+            }
+            return View(gender);
+        }
     }
 }

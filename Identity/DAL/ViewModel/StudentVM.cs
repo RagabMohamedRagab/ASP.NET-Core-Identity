@@ -12,7 +12,6 @@ namespace Identity.DAL.ViewModel {
         public string Gender { get; set; }
         [Required]
         public string Level { get; set; }
-        public int? StudentId { get; set; }
         public string ImgUrl { get; set; }
     }
 }
