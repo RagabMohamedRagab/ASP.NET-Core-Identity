@@ -7,11 +7,11 @@
 </div>
 <hr />
 <section>
-    <form asp-controller="Student" asp-action="Level" asp-antiforgery="true">
+    <form asp-controller="Student" asp-action="Gender" asp-antiforgery="true">
         <div asp-validation-summary="ModelOnly" style="color:red"></div>
         <div class="d-flex">
         <div class="form-group">
-            <input asp-for="Name" class="form-control" style="width=30%" placeholder="Level"/>
+            <input asp-for="Name" class="form-control"placeholder="Gender"/>
             <span asp-validation-for="Name" style="color:red"></span>
         </div>
         <div class="form-group">

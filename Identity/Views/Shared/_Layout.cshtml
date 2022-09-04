@@ -13,7 +13,7 @@
 </head>
 <body>
     <section class=" bg-dark">
-        <div class="container">
+        <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-dark">
                 <!-- Brand -->
                 <a class="navbar-brand" href="#">Identity</a>
@@ -26,15 +26,19 @@
                 <!-- Navbar links -->
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav"  style="margin-left:auto;display:flex;width:50%;align-items:center;justify-content:space-evenly" >
-                      <li  class="nav-item">
-                                <a asp-action="Level" asp-controller="Student" style=" color: #fff;">Level</a>
-                                </li>
-                         <li  class="nav-item">
-                            <a asp-action="Gender" asp-controller="Student" style=" color: #fff;">Gender</a>
-                            </li>
+                     
                         @if (signInUser.IsSignedIn(User))
                         {
-                            <li class="nav-item"  >
+                             <li  class="nav-item">
+                            <a asp-action="Create" asp-controller="Student" style=" color: #fff;">Student</a>
+                            </li>  
+                             <li  class="nav-item">
+                                <a asp-action="Levels" asp-controller="Student" style=" color: #fff;">Levels</a>
+                                </li>
+                         <li  class="nav-item">
+                            <a asp-action="Genders" asp-controller="Student" style=" color: #fff;">Genders</a>
+                            </li>  
+                            <li class="nav-item" >
                                 <form method="post" asp-action="Logout" asp-controller="Home">
                                     <input type="submit" value="Logout @User.Identity.Name">
                                 </form>

@@ -7,6 +7,7 @@ namespace Identity.Services {
         int Create(LevelVM level);
         int Create(GenderVM genderVM );
         IEnumerable<LevelVM> GetAllLevels();
+        IEnumerable<GenderVM> GetAllGenders();
         IEnumerable<StudentVM> GetAllStudents();
 
     }

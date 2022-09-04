@@ -21,6 +21,7 @@ namespace Identity.Controllers {
         public IActionResult Create()
         {
             ViewBag.Levels=new SelectList(_studentService.GetAllLevels().Select(m=>m.Name));
+            ViewBag.Genders = new SelectList(_studentService.GetAllGenders().Select(m => m.Name));
             return View();
         }
         [HttpPost]
@@ -36,9 +37,10 @@ namespace Identity.Controllers {
 
             return View(student);
         }
+        [HttpGet]
         public IActionResult Levels()
         {
-            return View();
+            return View(_studentService.GetAllLevels());
         }
         [HttpGet]
         public IActionResult Level()
@@ -59,6 +61,11 @@ namespace Identity.Controllers {
             return View(level);
         }
         [HttpGet]
+        public IActionResult Genders()
+        {
+            return View(_studentService.GetAllGenders());
+        }
+        [HttpGet]
         public IActionResult Gender()
         {
             return View();
@@ -71,7 +78,7 @@ namespace Identity.Controllers {
             {
                 if (_studentService.Create(gender) > 0)
                 {
-                    return RedirectToAction(nameof(Levels));
+                    return RedirectToAction(nameof(Genders));
                 }
             }
             return View(gender);

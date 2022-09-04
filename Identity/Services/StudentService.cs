@@ -102,6 +102,9 @@ namespace Identity.Services {
                 return 0;
             }
         }
+       public IEnumerable<GenderVM> GetAllGenders() {
+            return _appDb.Genders.Select(b => new GenderVM() { Name = b.Name });
+        }
         #endregion
     }
 }
