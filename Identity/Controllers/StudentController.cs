@@ -7,10 +7,12 @@ using System.Linq;
 namespace Identity.Controllers {
     public class StudentController : Controller {
         private readonly IStudentService _studentService;
+        private readonly IFileService _fileService;
 
-        public StudentController(IStudentService studentService)
+        public StudentController(IStudentService studentService, IFileService fileService)
         {
             _studentService = studentService;
+            _fileService = fileService;
         }
 
         public IActionResult Index()
@@ -25,17 +27,40 @@ namespace Identity.Controllers {
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(StudentVM student)
         {
             if (ModelState.IsValid)
             {
                 if (_studentService.Create(student) > 0)
                 {
+                    _fileService.Create(student.File);
                     return RedirectToAction(nameof(Index));
                 }
             }
 
             return View(student);
+        }
+        [HttpGet]
+        public IActionResult Delete(int Id)
+        {
+            if (_fileService.Remove(_studentService.Find(Id).ImgUrl) && _studentService.Remove(Id) > 0)
+            {
+                    return View("Done");
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Update(int Id)
+        {
+            ViewBag.Levels = new SelectList(_studentService.GetAllLevels().Select(m => m.Name));
+            ViewBag.Genders = new SelectList(_studentService.GetAllGenders().Select(m => m.Name));
+            var student = _studentService.Find(Id);
+            if (student!= null)
+            {
+                return View(student);
+            }
+            return RedirectToAction(nameof(Index));
         }
         [HttpGet]
         public IActionResult Levels()

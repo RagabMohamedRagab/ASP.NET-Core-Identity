@@ -3,11 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Identity.DAL.ViewModel {
     public class StudentVM {
-       [Display(Name ="First Name")]
+        public int Id { get; set; }
+        [Display(Name ="Full Name")]
        [Required]
         public string FullName { get; set; }
         public int Age { get; set; }
-        public FormFile File { get; set; }
+        public IFormFile File { get; set; }
         [Required]
         public string Gender { get; set; }
         [Required]

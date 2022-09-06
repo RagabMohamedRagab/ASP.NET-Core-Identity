@@ -28,4 +28,8 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.17" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
 </Project>

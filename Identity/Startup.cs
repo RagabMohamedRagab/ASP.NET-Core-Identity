@@ -33,6 +33,7 @@ namespace Identity {
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<AppDbContext>(option => option.UseSqlServer(Configurtion.GetConnectionString("Identity")));
             services.AddTransient<IStudentService, StudentService>();
+            services.AddTransient<IFileService, FileService>();
             
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
