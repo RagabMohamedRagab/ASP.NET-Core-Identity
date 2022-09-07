@@ -9,6 +9,7 @@
 <section>
     <table class="table table-striped">
         <tr>
+            <th>Id</th>
             <th>Name</th>
             <th>Actions</th>
         </tr>
@@ -18,11 +19,13 @@
          {
                <tr>
                  
+                    <td>@item.Id</td>
                     <td>@item.Name</td>
                     <td>
-                        <a href="#">Edit</a> |
-                        <a href="#">Delete</a> |
-                        <a href="#">Details</a> |
+                        <a  asp-action="UpdateGender" asp-route-Id="@item.Id">Edit</a> 
+                        &nbsp;    &nbsp;    &nbsp;
+                        <a asp-action="DeleteGender" asp-route-Id="@item.Id">Delete</a> 
+        
                     </td>
                 </tr>
          }

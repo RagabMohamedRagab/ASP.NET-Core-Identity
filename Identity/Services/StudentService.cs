@@ -21,7 +21,7 @@ namespace Identity.Services {
                 return 0;
             }
             var obj = _appDb.Students.Find(Id);
-            if(obj != null)
+            if (obj != null)
             {
                 _appDb.Students.Remove(obj);
                 return _appDb.SaveChanges();
@@ -42,6 +42,23 @@ namespace Identity.Services {
             return new StudentVM() { FullName = data.Name, Id = data.Id, Age = data.Age, ImgUrl = data.ImgUrl, Gender = data.GenderId.ToString(), Level = data.StudentId.ToString() };
         }
 
+        public int Update(int Id, StudentVM student)
+        {
+            if (Id <= 0)
+            {
+                return 0;
+            }
+            var oldentity = _appDb.Students.Find(Id);
+            oldentity.Name = student.FullName;
+            oldentity.Age = student.Age;
+            if (student.File != null)
+            {
+                oldentity.ImgUrl = student.File.FileName;
+            }
+            oldentity.StudentId = _appDb.Levels.FirstOrDefault(b => b.Name.ToLower() == student.Level.ToLower()).Id;
+            oldentity.GenderId = _appDb.Genders.FirstOrDefault(b => b.Name.ToLower() == student.Gender.ToLower()).Id;
+            return _appDb.SaveChanges();
+        }
 
         public IEnumerable<StudentVM> GetAllStudents()
         {
@@ -116,7 +133,7 @@ namespace Identity.Services {
         }
         public IEnumerable<LevelVM> GetAllLevels()
         {
-            return _appDb.Levels.Select(level => new LevelVM() { Name = level.Name });
+            return _appDb.Levels.Select(level => new LevelVM() {Id=level.Id, Name = level.Name });
         }
 
 
@@ -144,10 +161,53 @@ namespace Identity.Services {
         }
         public IEnumerable<GenderVM> GetAllGenders()
         {
-            return _appDb.Genders.Select(b => new GenderVM() { Name = b.Name });
+            return _appDb.Genders.Select(b => new GenderVM() { Id = b.Id, Name = b.Name });
         }
 
+        public GenderVM FindbyId(int Id)
+        {
 
+            var data = _appDb.Genders.Find(Id);
+            return new GenderVM { Id = data.Id, Name = data.Name };
+        }
+     public   int Delete(int Id)
+        {
+            _appDb.Genders.Remove(_appDb.Genders.Find(Id));
+            return _appDb.SaveChanges();
+        }
+        public int UpdateGender(int Id, GenderVM gender)
+        {
+            var data = _appDb.Genders.Find(Id);
+            if (data != null)
+            {
+                data.Name = gender.Name;
+                return _appDb.SaveChanges();
+            }
+            return 0;
+        }
+
+        public int DeleteLevel(int Id)
+        {
+            _appDb.Levels.Remove(_appDb.Levels.Find(Id));
+            return _appDb.SaveChanges();
+        }
+
+        public int UpdateLevel(int Id, LevelVM level)
+        {
+            var data = _appDb.Levels.Find(Id);
+            if (data != null)
+            {
+                data.Name = level.Name;
+                return _appDb.SaveChanges();
+            }
+            return 0;
+        }
+        public LevelVM FindLevel(int id)
+        {
+            var data = _appDb.Levels.Find(id);
+            return (new LevelVM { Id = data.Id, Name = data.Name });
+
+        }
         #endregion
     }
 }

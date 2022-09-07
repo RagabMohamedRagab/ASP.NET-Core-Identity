@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<StudentVM>
 @{
-    ViewData["Title"] = "All-space-betweent";
+    ViewData["Title"] = "All-Student";
 }
 
 <div class=mt-3  style="color:#343a40;display: flex;justify-content: end;">
@@ -17,7 +17,7 @@
       <th scope="col">Gender</th>
       <th scope="col">Level</th>
       <th scope="col">Photo</th>
-      <th scope="col"></th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -29,7 +29,7 @@
       <td>@item.Age</td>
       <td>@item.Gender</td>
       <td>@item.Level</td>
-      <td><img src="~/Images/@item.ImgUrl" class="img-responsive" width="60px" height="60" /></td>
+      <td><img src="~/Images/@item.ImgUrl" class="img-responsive" width="60" height="60" /></td>
       <td>
           <a asp-action="Update" asp-route-Id="@item.Id">Edit</a>|
            <a asp-action="Delete" asp-route-Id="@item.Id">Delete</a>

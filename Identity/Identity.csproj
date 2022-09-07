@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DAL\Domains\**" />
-    <Content Remove="DAL\Domains\**" />
-    <EmbeddedResource Remove="DAL\Domains\**" />
-    <None Remove="DAL\Domains\**" />
+   
   </ItemGroup>
 
   <ItemGroup>
@@ -26,10 +23,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.17" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
 </Project>

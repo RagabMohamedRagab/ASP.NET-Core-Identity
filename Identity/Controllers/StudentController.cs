@@ -22,7 +22,7 @@ namespace Identity.Controllers {
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Levels=new SelectList(_studentService.GetAllLevels().Select(m=>m.Name));
+            ViewBag.Levels = new SelectList(_studentService.GetAllLevels().Select(m => m.Name));
             ViewBag.Genders = new SelectList(_studentService.GetAllGenders().Select(m => m.Name));
             return View();
         }
@@ -46,22 +46,71 @@ namespace Identity.Controllers {
         {
             if (_fileService.Remove(_studentService.Find(Id).ImgUrl) && _studentService.Remove(Id) > 0)
             {
-                    return View("Done");
+                return View("Done");
             }
             return RedirectToAction(nameof(Index));
         }
-
+        [HttpGet]
         public IActionResult Update(int Id)
         {
             ViewBag.Levels = new SelectList(_studentService.GetAllLevels().Select(m => m.Name));
             ViewBag.Genders = new SelectList(_studentService.GetAllGenders().Select(m => m.Name));
             var student = _studentService.Find(Id);
-            if (student!= null)
+            if (student != null)
             {
                 return View(student);
             }
             return RedirectToAction(nameof(Index));
         }
+        [HttpPost]
+        public IActionResult Update(int Id, StudentVM student)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_fileService.Create(student.File) != null || _studentService.Update(Id, student) > 0)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            return View(student);
+        }
+
+
+        [HttpGet]
+        public IActionResult UpdateLevel(int Id)
+        {
+            return View(_studentService.FindLevel(Id));
+        }
+        [HttpPost]
+        public IActionResult UpdateLevel(int Id, LevelVM levelvm)
+        {
+            if (Id > 0)
+            {
+                if (ModelState.IsValid)
+                {
+                    if (_studentService.UpdateLevel(Id, levelvm) > 0)
+                    {
+                        return RedirectToAction(nameof(Levels));
+                    }
+                }
+            }
+            return View(levelvm);
+        }
+
+        [HttpGet]
+        public IActionResult DeleteLevel(int Id)
+        {
+            if (Id <= 0)
+            {
+                return RedirectToAction(nameof(Levels));
+            }
+            if (_studentService.DeleteLevel(Id) > 0)
+            {
+                return View("Done");
+            }
+            return RedirectToAction(nameof(Levels));
+        }
+
         [HttpGet]
         public IActionResult Levels()
         {
@@ -74,11 +123,11 @@ namespace Identity.Controllers {
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public  IActionResult Level(LevelVM level)
+        public IActionResult Level(LevelVM level)
         {
             if (ModelState.IsValid)
             {
-                if(_studentService.Create(level) > 0)
+                if (_studentService.Create(level) > 0)
                 {
                     return RedirectToAction(nameof(Levels));
                 }
@@ -104,6 +153,39 @@ namespace Identity.Controllers {
                 if (_studentService.Create(gender) > 0)
                 {
                     return RedirectToAction(nameof(Genders));
+                }
+            }
+            return View(gender);
+        }
+        [HttpGet]
+        public IActionResult DeleteGender(int Id)
+        {
+            if (Id <= 0)
+            {
+                return RedirectToAction(nameof(Genders));
+            }
+            if (_studentService.Delete(Id) > 0)
+            {
+                return View("Done");
+            }
+            return RedirectToAction(nameof(Genders));
+        }
+        [HttpGet]
+        public IActionResult UpdateGender(int Id)
+        {
+            return View(_studentService.FindbyId(Id));
+        }
+        [HttpPost]
+        public IActionResult UpdateGender(int Id, GenderVM gender)
+        {
+            if (Id >0)
+            {
+                if (ModelState.IsValid)
+                {
+                    if (_studentService.UpdateGender(Id, gender) > 0)
+                    {
+                        return RedirectToAction(nameof(Genders));
+                    }
                 }
             }
             return View(gender);

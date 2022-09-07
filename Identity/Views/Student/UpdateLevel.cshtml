@@ -1,0 +1,24 @@
+﻿@model LevelVM;
+@{
+    ViewData["Title"] = "Edit - Level";
+}
+<div>
+    <h2 class=" mt-3" style="color:#343a40">Add Student :</h2>
+</div>
+<hr />
+<form asp-controller="Student" asp-action="UpdateLevel" asp-antiforgery="true"  method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group text-bold">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" placeholder="Enter Name">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <input type="submit" value="Update" class="btn  btn-primary"/>&nbsp;&nbsp;&nbsp;
+         <a asp-action="Levels" asp-controller="Student" class="btn btn-danger">Back</a>
+    </div>
+</form>
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
