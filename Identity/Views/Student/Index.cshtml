@@ -31,8 +31,8 @@
       <td>@item.Level</td>
       <td><img src="~/Images/@item.ImgUrl" class="img-responsive" width="60" height="60" /></td>
       <td>
-          <a asp-action="Update" asp-route-Id="@item.Id">Edit</a>|
-           <a asp-action="Delete" asp-route-Id="@item.Id">Delete</a>
+          <a asp-action="Update" asp-route-Id="@item.Id" class="btn btn-primary">Edit</a> &nbsp;&nbsp;&nbsp;
+           <a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger">Delete</a>
       </td>
     </tr>
       }
