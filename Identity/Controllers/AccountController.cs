@@ -1,18 +1,20 @@
 ﻿using Identity.DAL.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Identity.Controllers {
-    public class HomeController : Controller {
+    public class AccountController : Controller {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
-        public HomeController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
@@ -23,12 +25,14 @@ namespace Identity.Controllers {
             return View();
         }
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Register()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(Register model)
         {
             if (ModelState.IsValid)
@@ -62,12 +66,14 @@ namespace Identity.Controllers {
             return View();
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginVM model)
         {
             if (ModelState.IsValid)

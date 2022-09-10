@@ -1,10 +1,12 @@
 using AutoMapper;
 using Identity.DAL.Context;
 using Identity.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,7 +36,13 @@ namespace Identity {
             services.AddDbContext<AppDbContext>(option => option.UseSqlServer(Configurtion.GetConnectionString("Identity")));
             services.AddTransient<IStudentService, StudentService>();
             services.AddTransient<IFileService, FileService>();
-            
+            services.AddMvc(option =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                                   .RequireAuthenticatedUser()
+                                   .Build();
+                option.Filters.Add(new AuthorizeFilter(policy));
+            }).AddXmlSerializerFormatters();
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 10;
@@ -78,7 +86,7 @@ namespace Identity {
             {
                 endpoints.MapControllerRoute(
                     name:"Identity",
-                    pattern:"{Controller=Home}/{Action=Index}/{id?}"
+                    pattern: "{Controller=Account}/{Action=Index}/{id?}"
                     );
             });
         }

@@ -210,11 +210,6 @@ C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\staticwebassets\Identity.
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Identity.TagHelpers.input.cache
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Identity.TagHelpers.output.cache
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Identity.RazorCoreGenerate.cache
-C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Home\Link.cshtml.g.cs
-C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
-C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Home\Ok.cshtml.g.cs
-C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Home\Register.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -242,4 +237,9 @@ C:\Users\pc\Desktop\Identity\Identity\bin\Debug\net5.0\Identity.Views.dll
 C:\Users\pc\Desktop\Identity\Identity\bin\Debug\net5.0\Identity.Views.pdb
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Student\UpdateGender.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Student\UpdateLevel.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\Index.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\Ok.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\Link.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Identity.csproj.AssemblyReference.cache

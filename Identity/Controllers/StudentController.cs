@@ -1,5 +1,6 @@
 ﻿using Identity.DAL.ViewModel;
 using Identity.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
@@ -14,12 +15,14 @@ namespace Identity.Controllers {
             _studentService = studentService;
             _fileService = fileService;
         }
-
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(_studentService.GetAllStudents());
         }
         [HttpGet]
+
         public IActionResult Create()
         {
             ViewBag.Levels = new SelectList(_studentService.GetAllLevels().Select(m => m.Name));
@@ -28,6 +31,7 @@ namespace Identity.Controllers {
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public IActionResult Create(StudentVM student)
         {
             if (ModelState.IsValid)
@@ -42,6 +46,7 @@ namespace Identity.Controllers {
             return View(student);
         }
         [HttpGet]
+
         public IActionResult Delete(int Id)
         {
             if (_fileService.Remove(_studentService.Find(Id).ImgUrl) && _studentService.Remove(Id) > 0)
@@ -51,6 +56,7 @@ namespace Identity.Controllers {
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
+       
         public IActionResult Update(int Id)
         {
             ViewBag.Levels = new SelectList(_studentService.GetAllLevels().Select(m => m.Name));
@@ -63,6 +69,7 @@ namespace Identity.Controllers {
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
+
         public IActionResult Update(int Id, StudentVM student)
         {
             if (ModelState.IsValid)
@@ -77,6 +84,7 @@ namespace Identity.Controllers {
 
 
         [HttpGet]
+
         public IActionResult UpdateLevel(int Id)
         {
             return View(_studentService.FindLevel(Id));
@@ -98,6 +106,7 @@ namespace Identity.Controllers {
         }
 
         [HttpGet]
+
         public IActionResult DeleteLevel(int Id)
         {
             if (Id <= 0)
@@ -112,11 +121,13 @@ namespace Identity.Controllers {
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Levels()
         {
             return View(_studentService.GetAllLevels());
         }
         [HttpGet]
+
         public IActionResult Level()
         {
             return View();
@@ -135,17 +146,20 @@ namespace Identity.Controllers {
             return View(level);
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Genders()
         {
             return View(_studentService.GetAllGenders());
         }
         [HttpGet]
+
         public IActionResult Gender()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public IActionResult Gender(GenderVM gender)
         {
             if (ModelState.IsValid)
@@ -158,6 +172,8 @@ namespace Identity.Controllers {
             return View(gender);
         }
         [HttpGet]
+
+
         public IActionResult DeleteGender(int Id)
         {
             if (Id <= 0)
@@ -171,11 +187,13 @@ namespace Identity.Controllers {
             return RedirectToAction(nameof(Genders));
         }
         [HttpGet]
+     
         public IActionResult UpdateGender(int Id)
         {
             return View(_studentService.FindbyId(Id));
         }
         [HttpPost]
+
         public IActionResult UpdateGender(int Id, GenderVM gender)
         {
             if (Id >0)

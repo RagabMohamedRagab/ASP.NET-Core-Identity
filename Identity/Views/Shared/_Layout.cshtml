@@ -27,10 +27,7 @@
                 <!-- Navbar links -->
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav"  style="margin-left:auto;display:flex;width:50%;align-items:center;justify-content:space-evenly" >
-                     
-                        @if (signInUser.IsSignedIn(User))
-                        {
-                             <li  class="nav-item">
+                     <li  class="nav-item">
                             <a asp-action="Index" asp-controller="Student" style=" color: #fff;">Students</a>
                             </li>  
                              <li  class="nav-item">
@@ -39,6 +36,9 @@
                          <li  class="nav-item">
                             <a asp-action="Genders" asp-controller="Student" style=" color: #fff;">Genders</a>
                             </li>  
+                        @if (signInUser.IsSignedIn(User))
+                        {
+                            
                             <li class="nav-item" >
                                 <form method="post" asp-action="Logout" asp-controller="Home">
                                     <input type="submit" value="Logout @User.Identity.Name">
@@ -47,13 +47,15 @@
                         }
                         else
                         {
+                             
                             <li class="nav-item" >
-                                <a asp-controller="Home" asp-action="Register" style="color: #fff;">Register</a>
+                                <a asp-controller="Account" asp-action="Register" style="color: #fff;">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a  asp-controller="Home" asp-action="Login" style=" color: #fff;">Login</a>
+                                <a  asp-controller="Account" asp-action="Login" style=" color: #fff;">Login</a>
                             </li>
                         }
+                        
                            
                     </ul>
         </div>
