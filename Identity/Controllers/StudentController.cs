@@ -74,7 +74,8 @@ namespace Identity.Controllers {
         {
             if (ModelState.IsValid)
             {
-                if (_fileService.Create(student.File) != null || _studentService.Update(Id, student) > 0)
+                var id = _studentService.Find(Id);
+                if (_studentService.Update(Id, student) > 0 &&_fileService.Remove(id.ImgUrl) &&_fileService.Create(student.File) != null  )
                 {
                     return RedirectToAction(nameof(Index));
                 }
