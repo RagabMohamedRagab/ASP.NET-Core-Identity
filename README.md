@@ -6,4 +6,5 @@
     <li><a href="https://www.youtube.com/watch?v=YLAHIZmO2PI&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=69">Show or hide login and logout links based on login status in asp net core</a></li>
     <li><a href="https://www.youtube.com/watch?v=9d8DXXc71RI&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=70">SImplementing login functionality in asp net core</a></li>
      <li><a href="https://www.youtube.com/watch?v=uET7MjhUeY4&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=71">Authorization in ASP NET Core</a></li>
+     <li><a href="https://www.youtube.com/watch?v=-asykt9Zo_w&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=72&t=4s">Redirect user to original url after login in asp net core</a></li>
 </ul>
