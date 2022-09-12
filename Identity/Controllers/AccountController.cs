@@ -82,8 +82,10 @@ namespace Identity.Controllers {
                 var user = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RemmberMe, false);
                 if (user.Succeeded)
                 {
-                    if (!string.IsNullOrEmpty(returnUrl))
-                    {  return Redirect(returnUrl);
+                    if (!string.IsNullOrEmpty(returnUrl)&& Url.IsLocalUrl(returnUrl))
+                    { 
+                        //return LocalRedirect(returnUrl);
+                        return Redirect(returnUrl);
                       
                     }
                     else
