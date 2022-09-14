@@ -5,7 +5,7 @@ namespace Identity.DAL.ViewModel {
     public class Register {
         [Required]
         [EmailAddress]
-        [Remote(action: "IsEmailInUse", controller:"Account")]
+        [Remote(action:"IsEmailInUse",controller: "Account")]
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]

@@ -72,19 +72,18 @@ namespace Identity.Controllers {
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-       [AcceptVerbs("Post","Get")]
-        [ValidateAntiForgeryToken]
+
         [AllowAnonymous]
-        public async Task<JsonResult> IsEmailInUse(string email)
+        public async Task<IActionResult> IsEmailInUse([Bind("Email")]Register model)
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByEmailAsync(model.Email);
             if(user == null)
             {
                 return Json(true);
             }
             else
             {
-                return Json($"Email/Username  {email}  is already taken.");
+                return Json($"Email {model.Email} is already Taken by another user");
             }
         }
         [HttpPost]
