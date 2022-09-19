@@ -7,7 +7,7 @@ namespace Identity.DAL.ViewModel {
         [Required]
         [EmailAddress]
         [Remote(action:"IsEmailInUse",controller: "Account")]
-        [ValidEmailDomain(allowDomain:".ragab",ErrorMessage ="Your Domain Must Be .ragab")]
+        [ValidEmailDomain(allowDomain:"ragab.rego",ErrorMessage = "Your Domain Must Be ragab.rego")]
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
@@ -17,5 +17,6 @@ namespace Identity.DAL.ViewModel {
         [Display(Name ="Confirm Password")]
         [Compare("Password",ErrorMessage ="Not Equal")]
         public string ConfirmPassword { get; set; }
+        public string City { get; set; }
     }
 }

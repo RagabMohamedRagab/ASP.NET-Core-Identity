@@ -1,5 +1,6 @@
 using AutoMapper;
 using Identity.DAL.Context;
+using Identity.DAL.ViewModel;
 using Identity.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -43,7 +44,7 @@ namespace Identity {
                                    .Build();
                 option.Filters.Add(new AuthorizeFilter(policy));
             }).AddXmlSerializerFormatters();
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             //services.Configure<IdentityOptions>(options =>
             //{
             //    options.Password.RequiredLength = 10;

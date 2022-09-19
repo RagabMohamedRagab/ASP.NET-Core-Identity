@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Identity.Controllers {
     public class AccountController : Controller {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -37,7 +37,7 @@ namespace Identity.Controllers {
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user = new IdentityUser() { Email = model.Email, UserName = model.Email };
+                ApplicationUser user = new ApplicationUser() { Email = model.Email, UserName = model.Email,City=model.City };
                 IdentityResult result=await _userManager.CreateAsync(user, model.Password);
                 switch (result.Succeeded)
                 {
