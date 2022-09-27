@@ -10,4 +10,6 @@
      <li><a href="https://www.youtube.com/watch?v=0q0CZTliQ7A&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=73">Open redirect vulnerability example</a></li>
       <li><a href="https://www.youtube.com/watch?v=NV734cJdZts&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=77">Extend IdentityUser in ASP NET Core
 </a></li>
+     <li><a href="https://www.youtube.com/watch?v=TuJd2Ez9i3I&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=78&t=70s">Creating roles in asp net core
+</a></li>
 </ul>
