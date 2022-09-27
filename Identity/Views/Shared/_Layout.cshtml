@@ -3,7 +3,6 @@
 <html lang="en">
 <head>
     <title>@ViewData["Title"]</title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/assest/StyleSheet.css">
@@ -14,6 +13,15 @@
    <script src="/lib/jquery/jquery.js"></script>
     <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <style>
+     #drop li{
+         padding-top:10px
+     }
+     #drop li:hover{
+         background-color:#DDD;
+         color:#fff;
+     }
+    </style>
 </head>
 <body>
     <section class=" bg-dark">
@@ -30,7 +38,16 @@
                 <!-- Navbar links -->
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav"  style="margin-left:auto;display:flex;width:50%;align-items:center;justify-content:space-evenly" >
-                     <li  class="nav-item">
+                     <li class="dropdown">
+                            <a class="dropdown-toggle text-info" style="text-decoration:none" data-toggle="dropdown" href="#">Roles
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu text-center align-middle" id="drop"  >
+                              <li  ><a asp-action="Create" asp-controller="Adminsitration" >Create</a></li>
+                              <li ><a href="#" >Page 1-2</a></li>
+                              <li ><a href="#" >Page 1-3</a></li>
+                            </ul>
+                           </li>
+                        <li  class="nav-item">
                             <a asp-action="Index" asp-controller="Student" style=" color: #fff;">Students</a>
                             </li>  
                              <li  class="nav-item">
@@ -39,6 +56,7 @@
                          <li  class="nav-item">
                             <a asp-action="Genders" asp-controller="Student" style=" color: #fff;">Genders</a>
                             </li>  
+                          
                         @if (signInUser.IsSignedIn(User))
                         {
                             
