@@ -12,4 +12,6 @@
 </a></li>
      <li><a href="https://www.youtube.com/watch?v=TuJd2Ez9i3I&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=78&t=70s">Creating roles in asp net core
 </a></li>
+ <li><a href="https://www.youtube.com/watch?v=KGIT8P29jf4&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=79">Get list of roles in asp net core
+</a></li>
 </ul>
