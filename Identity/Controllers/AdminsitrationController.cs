@@ -26,7 +26,7 @@ namespace Identity.Controllers {
                 IdentityResult result = await _roleManager.CreateAsync(identityRole);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction(nameof(Ok), "Account");
+                    return RedirectToAction(nameof(ListRoles));
                 }
                 foreach (IdentityError item in result.Errors)
                 {
@@ -35,6 +35,11 @@ namespace Identity.Controllers {
                 
             }
             return View(model);
+        }
+        [HttpGet]
+        public IActionResult ListRoles()
+        {
+             return View(_roleManager.Roles);
         }
     }
 }
