@@ -1,6 +1,7 @@
 ﻿using Identity.DAL.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -65,6 +66,33 @@ namespace Identity.Controllers {
                 }
             }
             return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditRole(EditRoleVM model) 
+        {
+            var role =await _roleManager.FindByIdAsync(model.Id);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = "Role User Not Found";
+                return View("NotFound");
+            }
+            else
+            {
+                role.Name = model.RoleName;
+              var result=  await _roleManager.UpdateAsync(role);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(ListRoles));
+                }
+                else
+                {
+                    foreach (IdentityError error in result.Errors)
+                    {
+                        ModelState.AddModelError(String.Empty, error.Description);
+                    }
+                }
+                return View(model);
+            }
         }
     }
 }
