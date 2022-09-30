@@ -246,3 +246,5 @@ C:\Users\pc\Desktop\Identity\Identity\bin\Debug\net5.0\libman.json
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Identity.csproj.AssemblyReference.cache
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitration\Create.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitration\ListRoles.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitration\EditRole.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitration\NotFound.cshtml.g.cs

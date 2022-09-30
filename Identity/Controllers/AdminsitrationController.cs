@@ -1,15 +1,18 @@
 ﻿using Identity.DAL.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Identity.Controllers {
     public class AdminsitrationController:Controller{
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public AdminsitrationController(RoleManager<IdentityRole> roleManager)
+        public AdminsitrationController(RoleManager<IdentityRole> roleManager,UserManager<ApplicationUser> userManager)
         {
             _roleManager = roleManager;
+            _userManager = userManager;
         }
         [HttpGet]
         public ActionResult Create() { 
@@ -40,6 +43,28 @@ namespace Identity.Controllers {
         public IActionResult ListRoles()
         {
              return View(_roleManager.Roles);
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditRole(string id)
+        {
+           var role=await _roleManager.FindByIdAsync(id);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = "Role User Not Found";
+                return View("NotFound");
+            }
+            EditRoleVM model = new()
+            {
+                RoleName = role.Name,
+                Id = role.Id
+            };
+            foreach (var item in _userManager.Users.ToList())
+            {
+                if (await _userManager.IsInRoleAsync(item, role.Name)) {
+                    model.Users.Add(item.UserName);
+                }
+            }
+            return View(model);
         }
     }
 }
