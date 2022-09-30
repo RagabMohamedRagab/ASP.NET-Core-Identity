@@ -14,4 +14,6 @@
 </a></li>
  <li><a href="https://www.youtube.com/watch?v=KGIT8P29jf4&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=79">Get list of roles in asp net core
 </a></li>
+ <li><a href="https://www.youtube.com/watch?v=7ikyZk5fGzk&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=80">Edit role in asp net core
+</a></li>
 </ul>
