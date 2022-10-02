@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -93,6 +94,77 @@ namespace Identity.Controllers {
                 }
                 return View(model);
             }
+        }
+        [HttpGet]
+        public async  Task<IActionResult> EditUserRole(string roleId)
+        {
+            ViewBag.roleId = roleId;
+            var role =await _roleManager.FindByIdAsync(roleId);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role {roleId}  Not Found";
+                return View("NotFound");
+            }
+         IList<UserRoleVM> userRoles=new List<UserRoleVM>();
+            foreach (var user in _userManager.Users.ToList())
+            {  
+                UserRoleVM vM = new UserRoleVM()
+                    {
+                        RoleId = roleId,
+                        UserId = user.Id,
+                        UserName = user.UserName,
+                    };
+                if(await _userManager.IsInRoleAsync(user, role.Name)) {
+                    vM.IsSelelected = true;
+                }
+                else
+                {
+                    vM.IsSelelected = false;
+                }
+                userRoles.Add(vM);
+            }
+            return View(userRoles);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditUserRole(List<UserRoleVM> userRoles,string roleId) {
+            var role =await _roleManager.FindByIdAsync(roleId);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role {roleId}  Not Found";
+                return View("NotFound");
+            }
+            for (int i = 0; i < userRoles.Count; i++) {
+                var user = await _userManager.FindByIdAsync(userRoles[i].UserId);
+                if (user == null) {
+                    ViewBag.ErrorMessage = $"User {userRoles[i].UserName}  Not Found";
+                    return View("NotFound");
+                }
+                IdentityResult result = null;
+                if (userRoles[i].IsSelelected&& !(await _userManager.IsInRoleAsync(user,role.Name)))
+                {
+                    result =await _userManager.AddToRoleAsync(user, role.Name);
+                }
+                else if(!userRoles[i].IsSelelected&&await _userManager.IsInRoleAsync(user,role.Name)) {
+                    result=await _userManager.RemoveFromRoleAsync(user, role.Name);
+                }
+                else
+                {
+                    continue;
+                }
+                if (result.Succeeded)
+                {
+                    if (i < userRoles.Count)
+                    {
+                        continue;
+                    }
+                    else {
+                        return RedirectToAction(nameof(EditRole), new { id = roleId });
+                    }
+                   
+                }
+
+            }
+            return RedirectToAction(nameof(EditRole), new { id = roleId });
         }
     }
 }
