@@ -16,4 +16,6 @@
 </a></li>
  <li><a href="https://www.youtube.com/watch?v=7ikyZk5fGzk&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=80">Edit role in asp net core
 </a></li>
+ <li><a href="https://www.youtube.com/watch?v=TzhqymQm5kw&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=81">Add or remove users from role in asp net core
+</a></li>
 </ul>
