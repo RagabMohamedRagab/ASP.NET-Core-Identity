@@ -18,4 +18,6 @@
 </a></li>
  <li><a href="https://www.youtube.com/watch?v=TzhqymQm5kw&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=81">Add or remove users from role in asp net core
 </a></li>
+ <li><a href="https://www.youtube.com/watch?v=DXVe6skc42k&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=82">ASP NET Core role based authorization
+</a></li>
 </ul>
