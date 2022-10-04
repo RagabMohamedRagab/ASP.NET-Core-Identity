@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Identity.Controllers {
-    [Authorize(Roles ="Admin,User")]
+    [Authorize(Roles ="Admin")]
     public class AdminsitrationController:Controller{
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -19,12 +19,12 @@ namespace Identity.Controllers {
             _userManager = userManager;
         }
         [HttpGet]
-        [Authorize(Roles="Admin")]
+
         public ActionResult Create() { 
           return View();
         }
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Create(CreateRoleVM model) {
             if (ModelState.IsValid)
             {
@@ -51,7 +51,7 @@ namespace Identity.Controllers {
              return View(_roleManager.Roles);
         }
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> EditRole(string id)
         {
            var role=await _roleManager.FindByIdAsync(id);
@@ -74,7 +74,7 @@ namespace Identity.Controllers {
             return View(model);
         }
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> EditRole(EditRoleVM model) 
         {
             var role =await _roleManager.FindByIdAsync(model.Id);

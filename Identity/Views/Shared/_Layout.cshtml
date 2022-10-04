@@ -38,16 +38,19 @@
                 <!-- Navbar links -->
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav"  style="margin-left:auto;display:flex;width:50%;align-items:center;justify-content:space-evenly" >
-                     <li class="dropdown">
-                            <a class="dropdown-toggle text-info" style="text-decoration:none" data-toggle="dropdown" href="#" >Roles
-                            <span class="caret"></span></a>
-                            <ul class="dropdown-menu text-center align-middle" id="drop"  >
+                     @if (signInUser.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="dropdown">
+                                <a class="dropdown-toggle text-info" style="text-decoration:none" data-toggle="dropdown" href="#" >Roles
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu text-center align-middle" id="drop"  >
                                     <li ><a  asp-action="ListRoles" asp-controller="Adminsitration" >All Roles</a></li>
-                              <li  ><a asp-action="Create" asp-controller="Adminsitration" >Create</a></li>
-                          
-                              <li ><a href="#" >Page 1-3</a></li>
-                            </ul>
-                           </li>
+                                    <li  ><a asp-action="Create" asp-controller="Adminsitration" >Create</a></li>
+
+
+                                </ul>
+                            </li>
+                        }
                         <li  class="nav-item">
                             <a asp-action="Index" asp-controller="Student" style=" color: #fff;">Students</a>
                             </li>  
