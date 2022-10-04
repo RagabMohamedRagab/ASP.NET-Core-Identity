@@ -20,4 +20,6 @@
 </a></li>
  <li><a href="https://www.youtube.com/watch?v=DXVe6skc42k&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=82">ASP NET Core role based authorization
 </a></li>
+<li><a href="https://www.youtube.com/watch?v=IPjK65ehQBg&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=83">Show or hide navigation menu based on user role in asp net core
+</a></li>
 </ul>
