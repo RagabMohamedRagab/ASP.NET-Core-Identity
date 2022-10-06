@@ -42,6 +42,10 @@ namespace Identity.Controllers {
                 switch (result.Succeeded)
                 {
                     case true:
+                        if (_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            return RedirectToAction("ListUsers", "Adminsitration");
+                        }
                          await _signInManager.SignInAsync(user, isPersistent: false);
                         return RedirectToAction(nameof(ok));
                     default:

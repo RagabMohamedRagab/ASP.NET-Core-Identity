@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ApplicationUser>;
+@{
+    ViewData["Title"] = "All - Users";
+}
+<div>
+    <h2 class=" mt-3" style="color:#343a40">All Users </h2>
+</div>
+<hr />
+@if(Model.Any()){
+ <div>
+   <a asp-action="Register" asp-controller="Account" class="btn btn-primary">Create A new User</a>
+</div>
+    @foreach (var user in Model)
+   {
+       <div class="card mt-2">
+           <div class="card-header">
+               User Id :@user.Id
+           </div>
+           <div class="card-body">
+                 @user.Email
+           </div>
+           <div class="card-footer">
+               <a asp-action="" asp-controller="" class="btn btn-primary">Edit</a>
+               <a asp-action="" asp-controller="" class="btn btn-danger">Delete</a>
+           </div>
+       </div>
+   }
+}else{
+    <div class="card">
+        <div class="card-header">
+            No user created yet
+        </div>
+        <div class="card-body">
+            <a asp-action="Register" asp-controller="Account" class="btn btn-primary">Create A new User</a>
+        </div>
+    </div>
+}

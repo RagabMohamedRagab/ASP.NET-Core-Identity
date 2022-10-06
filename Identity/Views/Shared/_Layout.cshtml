@@ -41,11 +41,11 @@
                      @if (signInUser.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
                             <li class="dropdown">
-                                <a class="dropdown-toggle text-info" style="text-decoration:none" data-toggle="dropdown" href="#" >Roles
+                                <a class="dropdown-toggle text-info" style="text-decoration:none" data-toggle="dropdown" href="#" >Manage
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu text-center align-middle" id="drop"  >
-                                    <li ><a  asp-action="ListRoles" asp-controller="Adminsitration" >All Roles</a></li>
-                                    <li  ><a asp-action="Create" asp-controller="Adminsitration" >Create</a></li>
+                                    <li ><a  asp-action="ListRoles" asp-controller="Adminsitration" >Roles</a></li>
+                                    <li  ><a asp-action="ListUsers" asp-controller="Adminsitration" >Users</a></li>
 
 
                                 </ul>

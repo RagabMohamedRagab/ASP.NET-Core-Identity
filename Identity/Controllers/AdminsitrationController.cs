@@ -19,6 +19,12 @@ namespace Identity.Controllers {
             _userManager = userManager;
         }
         [HttpGet]
+        public IActionResult ListUsers()
+        {
+            var users = _userManager.Users;
+            return View(users);
+        }
+        [HttpGet]
 
         public ActionResult Create() { 
           return View();
