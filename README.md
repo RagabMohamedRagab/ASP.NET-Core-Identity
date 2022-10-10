@@ -25,4 +25,6 @@
 </a></li>
 <li><a href="https://www.youtube.com/watch?v=OMX0UiLpMSA&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=84">List all users from asp net core identity database
 </a></li>
+<li><a href="https://www.youtube.com/watch?v=QYlIfH8qyrU&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=85">Edit identity user in asp net core
+</a></li>
 </ul>
