@@ -25,6 +25,59 @@ namespace Identity.Controllers {
             return View(users);
         }
         [HttpGet]
+        public async Task<IActionResult> EditUser(string Id)
+        {
+            var user=await _userManager.FindByIdAsync(Id);
+            if(user == null)
+            {
+                ViewBag.ErrorMessage = "User Not Found";
+                return View("NotFound");
+            }
+            var RolesUser =await _userManager.GetRolesAsync(user);
+            var ClaimsUser =await _userManager.GetClaimsAsync(user);
+            EditUserVM vm = new EditUserVM()
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                 Roles=RolesUser.ToList(),
+                 Claims=ClaimsUser.Select(b=>b.Value).ToList(),
+                city=user.City,
+            };
+            return View(vm);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditUser(EditUserVM userVM)
+        {
+            var user =await _userManager.FindByIdAsync(userVM.Id);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = "User Not Found";
+                return View("NotFound");
+            }
+            else
+            {
+                user.Email = userVM.Email;
+                user.UserName = userVM.UserName;
+                user.City = userVM.city;
+                IdentityResult result =await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(ListUsers));
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(String.Empty, error.Description);
+                    }
+                }
+                return View(userVM);
+            }
+
+        }
+        [HttpGet]
 
         public ActionResult Create() { 
           return View();
