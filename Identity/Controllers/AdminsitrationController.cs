@@ -78,6 +78,29 @@ namespace Identity.Controllers {
 
         }
         [HttpGet]
+        public async Task<IActionResult> DeleteUser(string Id)
+        {
+            var user =await _userManager.FindByIdAsync(Id);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = "User Not Found";
+                return View("NotFound");
+            }
+            IdentityResult result =await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                return RedirectToAction(nameof(ListUsers));
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(String.Empty, error.Description);
+                }
+            }
+            return RedirectToAction(nameof(ListUsers));
+        }
+        [HttpGet]
 
         public ActionResult Create() { 
           return View();

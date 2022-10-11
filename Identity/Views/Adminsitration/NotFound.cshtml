@@ -1,7 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Not Found";
 }
-<h1>@ViewBag.ErrorMessage</h1>
-<a asp-action="Index" asp-controller="Account">
-    Click here To go Home Page
-</a>
+<div style="text-align:center">
+    <h2>@ViewBag.ErrorMessage</h2>
+            <a asp-action="Index" asp-controller="Account" class="btn btn-primary">
+                Click here To go Home Page
+            </a>
+
+</div>
+
+
+
+
