@@ -29,4 +29,6 @@
 </a></li>
 <li><a href="https://www.youtube.com/watch?v=MhNfyZGfY-A&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=86">Delete identity user in asp net core
 </a></li>
+<li><a href="https://www.youtube.com/watch?v=hKLjt9GzYM8&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=87">ASP NET Core delete confirmation
+</a></li>
 </ul>
