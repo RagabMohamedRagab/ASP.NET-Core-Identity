@@ -133,7 +133,35 @@ namespace Identity.Controllers {
              return View(_roleManager.Roles);
         }
         [HttpGet]
+        public async Task<IActionResult> DeleteRole(string Id)
+        {
+            var role = await _roleManager.FindByIdAsync(Id);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = "Role Not Found";
+                return View("NotFound");
+            }
+            else
+            {
+                IdentityResult result = await _roleManager.DeleteAsync(role);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(ListRoles));
+                }
+                else
+                {
+                    foreach(IdentityError item in result.Errors)
+                    {
+                        ModelState.AddModelError(String.Empty, item.Description);
+                    }
+                    return RedirectToAction(nameof(ListRoles));
+                }
+            }
+         
+        }
 
+
+        [HttpGet]
         public async Task<IActionResult> EditRole(string id)
         {
            var role=await _roleManager.FindByIdAsync(id);

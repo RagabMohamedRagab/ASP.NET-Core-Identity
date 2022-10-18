@@ -2,6 +2,7 @@
 using Identity.DAL.ViewModel;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Identity.DAL.Context {
     public class AppDbContext:IdentityDbContext<ApplicationUser> {
@@ -20,6 +21,10 @@ namespace Identity.DAL.Context {
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            foreach (var ForeignKey in builder.Model.GetEntityTypes().SelectMany(e=>e.GetForeignKeys()))
+            {
+                ForeignKey.DeleteBehavior = DeleteBehavior.Restrict;
+            }
         }
     }
 }
