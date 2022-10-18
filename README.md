@@ -31,4 +31,8 @@
 </a></li>
 <li><a href="https://www.youtube.com/watch?v=hKLjt9GzYM8&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=87">ASP NET Core delete confirmation
 </a></li>
+<li><a href="https://www.youtube.com/watch?v=pj3GCelrIGM&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=88">Delete identity role in asp net core
+</a></li>
+<li><a href="https://www.youtube.com/watch?v=txTZAFut9mA&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=89">Enforce ON DELETE NO ACTION in entity framework core
+</a></li>
 </ul>
