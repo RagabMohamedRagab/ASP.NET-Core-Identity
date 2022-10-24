@@ -278,7 +278,6 @@ namespace Identity.Controllers {
                     }
                    
                 }
-
             }
             return RedirectToAction(nameof(EditRole), new { id = roleId });
         }
