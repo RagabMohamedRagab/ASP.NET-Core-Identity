@@ -14,20 +14,27 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\Users\pc\Desktop\Identity\Identity\Views\_ViewImports.cshtml"
-using Identity.DAL.ViewModel;
+using Identity.DAL;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\pc\Desktop\Identity\Identity\Views\_ViewImports.cshtml"
+using Identity.DAL.ViewModel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\pc\Desktop\Identity\Identity\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"592f383d65ee22565c1f9734c8c99a30814c1bc1", @"/Views/Student/Levels.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc430d2a7da73aa030ba715f9cd9a9082027a927", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"61324f526ad51cb18c292b7333e1106ad91a25c8", @"/Views/_ViewImports.cshtml")]
     public class Views_Student_Levels : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<LevelVM>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Student", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -70,7 +77,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("<div class=mt-3  style=\"color:#343a40;display: flex;justify-content: end;\">\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "592f383d65ee22565c1f9734c8c99a30814c1bc15629", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "592f383d65ee22565c1f9734c8c99a30814c1bc15794", async() => {
                 WriteLiteral("Add Level");
             }
             );
@@ -123,7 +130,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                    <td>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "592f383d65ee22565c1f9734c8c99a30814c1bc18294", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "592f383d65ee22565c1f9734c8c99a30814c1bc18459", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -155,7 +162,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" &nbsp;&nbsp;&nbsp;  \r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "592f383d65ee22565c1f9734c8c99a30814c1bc110571", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "592f383d65ee22565c1f9734c8c99a30814c1bc110736", async() => {
                 WriteLiteral("Delete");
             }
             );

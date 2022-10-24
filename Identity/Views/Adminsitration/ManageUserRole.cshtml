@@ -1,0 +1,32 @@
+﻿@model List<EditUserRoleVM>;
+@{
+    string Id=ViewBag.UserId;
+    ViewData["Title"] = "Manage - Roles";
+}
+<div>
+    <h2 class=" mt-3" style="color:#343a40">Manage Roles</h2>
+</div>
+<hr />
+<form method="post" asp-action="ManageUserRole" asp-controller="Adminsitration" asp-route-userId="@Id" asp-antiforgery="true">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Roles For User</h2>
+        </div>  
+        <div class="card-body">
+        @for(int i = 0; i < Model.Count; i++)
+        {
+                   <input hidden asp-for="@Model[i].RoleId"/>
+                   <input hidden asp-for="@Model[i].UserId"/>
+                   <input hidden asp-for="@Model[i].RoleName"/>
+                   <div class="form-check mt-1">
+                       <input asp-for="@Model[i].IsSelected" class="form-check-input"/>
+                       <label asp-for="@Model[i].IsSelected" class="form-check-label">@Model[i].RoleName</label>
+                   </div>
+        }
+        </div>
+        <div class="card-footer">
+           <input type="submit" class="btn btn-primary"  value="Update"/>
+                <a asp-action="EditUser" asp-controller="Adminsitration" asp-route-Id="@Id" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+</form>

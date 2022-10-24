@@ -2,18 +2,19 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Identity.Controllers {
-    [Authorize(Roles ="Admin")]
-    public class AdminsitrationController:Controller{
+    [Authorize(Roles = "Admin")]
+    public class AdminsitrationController : Controller {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public AdminsitrationController(RoleManager<IdentityRole> roleManager,UserManager<ApplicationUser> userManager)
+        public AdminsitrationController(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
@@ -27,22 +28,22 @@ namespace Identity.Controllers {
         [HttpGet]
         public async Task<IActionResult> EditUser(string Id)
         {
-            var user=await _userManager.FindByIdAsync(Id);
-            if(user == null)
+            var user = await _userManager.FindByIdAsync(Id);
+            if (user == null)
             {
                 ViewBag.ErrorMessage = "User Not Found";
                 return View("NotFound");
             }
-            var RolesUser =await _userManager.GetRolesAsync(user);
-            var ClaimsUser =await _userManager.GetClaimsAsync(user);
+            var RolesUser = await _userManager.GetRolesAsync(user);
+            var ClaimsUser = await _userManager.GetClaimsAsync(user);
             EditUserVM vm = new EditUserVM()
             {
                 Id = user.Id,
                 UserName = user.UserName,
                 Email = user.Email,
-                 Roles=RolesUser.ToList(),
-                 Claims=ClaimsUser.Select(b=>b.Value).ToList(),
-                city=user.City,
+                Roles = RolesUser.ToList(),
+                Claims = ClaimsUser.Select(b => b.Value).ToList(),
+                city = user.City,
             };
             return View(vm);
 
@@ -50,7 +51,7 @@ namespace Identity.Controllers {
         [HttpPost]
         public async Task<IActionResult> EditUser(EditUserVM userVM)
         {
-            var user =await _userManager.FindByIdAsync(userVM.Id);
+            var user = await _userManager.FindByIdAsync(userVM.Id);
             if (user == null)
             {
                 ViewBag.ErrorMessage = "User Not Found";
@@ -61,7 +62,7 @@ namespace Identity.Controllers {
                 user.Email = userVM.Email;
                 user.UserName = userVM.UserName;
                 user.City = userVM.city;
-                IdentityResult result =await _userManager.UpdateAsync(user);
+                IdentityResult result = await _userManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
                     return RedirectToAction(nameof(ListUsers));
@@ -80,13 +81,13 @@ namespace Identity.Controllers {
         [HttpGet]
         public async Task<IActionResult> DeleteUser(string Id)
         {
-            var user =await _userManager.FindByIdAsync(Id);
+            var user = await _userManager.FindByIdAsync(Id);
             if (user == null)
             {
                 ViewBag.ErrorMessage = "User Not Found";
                 return View("NotFound");
             }
-            IdentityResult result =await _userManager.DeleteAsync(user);
+            IdentityResult result = await _userManager.DeleteAsync(user);
             if (result.Succeeded)
             {
                 return RedirectToAction(nameof(ListUsers));
@@ -102,12 +103,14 @@ namespace Identity.Controllers {
         }
         [HttpGet]
 
-        public ActionResult Create() { 
-          return View();
+        public ActionResult Create()
+        {
+            return View();
         }
         [HttpPost]
 
-        public async Task<IActionResult> Create(CreateRoleVM model) {
+        public async Task<IActionResult> Create(CreateRoleVM model)
+        {
             if (ModelState.IsValid)
             {
                 IdentityRole identityRole = new IdentityRole()
@@ -123,14 +126,14 @@ namespace Identity.Controllers {
                 {
                     ModelState.AddModelError(string.Empty, item.Description);
                 }
-                
+
             }
             return View(model);
         }
         [HttpGet]
         public IActionResult ListRoles()
         {
-             return View(_roleManager.Roles);
+            return View(_roleManager.Roles);
         }
         [HttpGet]
         public async Task<IActionResult> DeleteRole(string Id)
@@ -150,21 +153,21 @@ namespace Identity.Controllers {
                 }
                 else
                 {
-                    foreach(IdentityError item in result.Errors)
+                    foreach (IdentityError item in result.Errors)
                     {
                         ModelState.AddModelError(String.Empty, item.Description);
                     }
                     return RedirectToAction(nameof(ListRoles));
                 }
             }
-         
+
         }
 
 
         [HttpGet]
         public async Task<IActionResult> EditRole(string id)
         {
-           var role=await _roleManager.FindByIdAsync(id);
+            var role = await _roleManager.FindByIdAsync(id);
             if (role == null)
             {
                 ViewBag.ErrorMessage = "Role User Not Found";
@@ -177,7 +180,8 @@ namespace Identity.Controllers {
             };
             foreach (var item in _userManager.Users.ToList())
             {
-                if (await _userManager.IsInRoleAsync(item, role.Name)) {
+                if (await _userManager.IsInRoleAsync(item, role.Name))
+                {
                     model.Users.Add(item.UserName);
                 }
             }
@@ -185,9 +189,9 @@ namespace Identity.Controllers {
         }
         [HttpPost]
 
-        public async Task<IActionResult> EditRole(EditRoleVM model) 
+        public async Task<IActionResult> EditRole(EditRoleVM model)
         {
-            var role =await _roleManager.FindByIdAsync(model.Id);
+            var role = await _roleManager.FindByIdAsync(model.Id);
             if (role == null)
             {
                 ViewBag.ErrorMessage = "Role User Not Found";
@@ -196,7 +200,7 @@ namespace Identity.Controllers {
             else
             {
                 role.Name = model.RoleName;
-              var result=  await _roleManager.UpdateAsync(role);
+                var result = await _roleManager.UpdateAsync(role);
                 if (result.Succeeded)
                 {
                     return RedirectToAction(nameof(ListRoles));
@@ -212,25 +216,26 @@ namespace Identity.Controllers {
             }
         }
         [HttpGet]
-        public async  Task<IActionResult> EditUserRole(string roleId)
+        public async Task<IActionResult> EditUserRole(string roleId)
         {
             ViewBag.roleId = roleId;
-            var role =await _roleManager.FindByIdAsync(roleId);
+            var role = await _roleManager.FindByIdAsync(roleId);
             if (role == null)
             {
                 ViewBag.ErrorMessage = $"Role {roleId}  Not Found";
                 return View("NotFound");
             }
-         IList<UserRoleVM> userRoles=new List<UserRoleVM>();
+            IList<UserRoleVM> userRoles = new List<UserRoleVM>();
             foreach (var user in _userManager.Users.ToList())
-            {  
+            {
                 UserRoleVM vM = new UserRoleVM()
-                    {
-                        RoleId = roleId,
-                        UserId = user.Id,
-                        UserName = user.UserName,
-                    };
-                if(await _userManager.IsInRoleAsync(user, role.Name)) {
+                {
+                    RoleId = roleId,
+                    UserId = user.Id,
+                    UserName = user.UserName,
+                };
+                if (await _userManager.IsInRoleAsync(user, role.Name))
+                {
                     vM.IsSelelected = true;
                 }
                 else
@@ -242,26 +247,30 @@ namespace Identity.Controllers {
             return View(userRoles);
         }
         [HttpPost]
-        public async Task<IActionResult> EditUserRole(List<UserRoleVM> userRoles,string roleId) {
-            var role =await _roleManager.FindByIdAsync(roleId);
+        public async Task<IActionResult> EditUserRole(List<UserRoleVM> userRoles, string roleId)
+        {
+            var role = await _roleManager.FindByIdAsync(roleId);
             if (role == null)
             {
                 ViewBag.ErrorMessage = $"Role {roleId}  Not Found";
                 return View("NotFound");
             }
-            for (int i = 0; i < userRoles.Count; i++) {
+            for (int i = 0; i < userRoles.Count; i++)
+            {
                 var user = await _userManager.FindByIdAsync(userRoles[i].UserId);
-                if (user == null) {
+                if (user == null)
+                {
                     ViewBag.ErrorMessage = $"User {userRoles[i].UserName}  Not Found";
                     return View("NotFound");
                 }
                 IdentityResult result = null;
-                if (userRoles[i].IsSelelected&& !(await _userManager.IsInRoleAsync(user,role.Name)))
+                if (userRoles[i].IsSelelected && !(await _userManager.IsInRoleAsync(user, role.Name)))
                 {
-                    result =await _userManager.AddToRoleAsync(user, role.Name);
+                    result = await _userManager.AddToRoleAsync(user, role.Name);
                 }
-                else if(!userRoles[i].IsSelelected&&await _userManager.IsInRoleAsync(user,role.Name)) {
-                    result=await _userManager.RemoveFromRoleAsync(user, role.Name);
+                else if (!userRoles[i].IsSelelected && await _userManager.IsInRoleAsync(user, role.Name))
+                {
+                    result = await _userManager.RemoveFromRoleAsync(user, role.Name);
                 }
                 else
                 {
@@ -273,13 +282,74 @@ namespace Identity.Controllers {
                     {
                         continue;
                     }
-                    else {
+                    else
+                    {
                         return RedirectToAction(nameof(EditRole), new { id = roleId });
                     }
-                   
+
                 }
             }
             return RedirectToAction(nameof(EditRole), new { id = roleId });
         }
+        [HttpGet]
+        public async Task<IActionResult> ManageUserRole(string userId)
+        {
+            ViewBag.UserId = userId;
+            var user = await _userManager.FindByIdAsync(userId: userId);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"User {userId}  Not Found";
+                return View("NotFound");
+            }
+
+            IList<EditUserRoleVM> model = new List<EditUserRoleVM>();
+            var roles = await _roleManager.Roles.ToListAsync();
+            foreach (var role in roles)
+            {
+                EditUserRoleVM editUser = new EditUserRoleVM()
+                {
+                    RoleId = role.Id,
+                    UserId = user.Id,
+                    RoleName = role.Name
+                };
+                if (await _userManager.IsInRoleAsync(user, role.Name))
+                {
+                    editUser.IsSelected = true;
+                }
+                else
+                {
+                    editUser.IsSelected = false;
+                }
+                model.Add(editUser);
+            }
+            return View(model.ToList());
+        }
+        [HttpPost]
+        public async Task<IActionResult> ManageUserRole(List<EditUserRoleVM> vMs, string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId: userId);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"User {userId}  Not Found";
+                return View("NotFound");
+            }
+         
+          var roles=await _userManager.GetRolesAsync(user);
+           IdentityResult result1=await _userManager.RemoveFromRolesAsync(user, roles);
+            if (!result1.Succeeded)
+            {
+                ModelState.AddModelError(String.Empty, "Can remove existing Roles");
+                return View(vMs);
+            }
+            var result2 =await _userManager.AddToRolesAsync(user, vMs.Where(b => b.IsSelected).Select(a => a.RoleName));
+            if (!result2.Succeeded)
+            {
+                ModelState.AddModelError(String.Empty, "Can add existing Roles");
+                return View(vMs);
+            }
+            return RedirectToAction(nameof(EditUser), new { Id = user.Id });
+        }
     }
 }
+
+
