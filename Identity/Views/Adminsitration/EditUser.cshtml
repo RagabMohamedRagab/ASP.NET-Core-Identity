@@ -1,4 +1,5 @@
-﻿@model EditUserVM;
+﻿@using Identity.DAL.ViewModel;
+@model EditUserVM;
 @{
     ViewData["Title"] = "Edit - User";
 
@@ -71,6 +72,6 @@
         }
     </div>
     <div class="card-footer">
-        <a class="btn btn-primary">Manage Claims</a>
+        <a asp-area="" asp-action="ManageUserClaims" asp-controller="Adminsitration"asp-route-userId="@Model.Id" class="btn btn-primary">Manage Claims</a>
     </div>
 </div>

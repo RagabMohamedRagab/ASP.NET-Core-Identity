@@ -253,3 +253,4 @@ C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitratio
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitration\EditUser.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Identity.csproj.AssemblyReference.cache
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitration\ManageUserRole.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitration\ManageUserClaims.cshtml.g.cs

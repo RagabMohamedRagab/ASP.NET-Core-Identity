@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Identity.Controllers {
@@ -18,6 +19,69 @@ namespace Identity.Controllers {
         {
             _roleManager = roleManager;
             _userManager = userManager;
+        }
+        [HttpGet]
+        public async Task<IActionResult> ManageUserClaims(string userId)
+        {
+            var user =await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = "User Not Found";
+                return View("NotFound");
+            }
+            var allClaimsForUser =await _userManager.GetClaimsAsync(user);
+            UserClaimVM vm = new UserClaimVM()
+            {
+                userId = userId,
+            };
+            foreach (var claim in ClaimStore.Claims)
+            {
+                UserClaim userClaim = new UserClaim()
+                {
+                    ClaimType = claim.Type,
+                };
+                if(allClaimsForUser.Any(b=>b.Type == claim.Type))
+                {
+                    userClaim.IsSelect = true;
+                }
+                else
+                {
+                    userClaim.IsSelect = false;
+                }
+                vm.Claims.Add(userClaim);
+            }
+            return View(vm);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ManageUserClaims(UserClaimVM claimVMs,string userId) {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = "User Not Found";
+                return View("NotFound");
+            }
+            var allcalim =await _userManager.GetClaimsAsync(user);
+            IdentityResult result=await _userManager.RemoveClaimsAsync(user, allcalim);
+            if (!result.Succeeded)
+            {
+                foreach (IdentityError error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                    return RedirectToAction(nameof(ManageUserClaims), new { userId = user.Id });
+                }
+            }
+            var result2 = await _userManager.AddClaimsAsync(user, 
+             claimVMs.Claims.Where(a => a.IsSelect).Select(b => new Claim(b.ClaimType, b.ClaimType)));
+            if (!result2.Succeeded)
+            {
+                foreach (IdentityError error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                    return RedirectToAction(nameof(ManageUserClaims), new { userId = user.Id });
+                }
+            }
+            return RedirectToAction(nameof(EditUser), new { Id = claimVMs.userId });
         }
         [HttpGet]
         public IActionResult ListUsers()

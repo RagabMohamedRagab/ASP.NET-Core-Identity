@@ -1,0 +1,37 @@
+﻿@model UserClaimVM;
+@{
+     ViewData["Title"] = "Edit - Claim";
+}
+<form method="post" asp-area="" asp-action="ManageUserClaims" asp-controller="Adminsitration" asp-route-userId="@Model.userId" asp-antiforgery="true">
+    <div asp-validation-summary="ModelOnly"></div>
+  <card>
+      <div class="card-header">
+          <h2 class="card-title">Manage User Claims </h2>
+      </div>
+      <div class="card-body">
+            @if (Model.Claims.Any())
+            {
+                @for (var i = 0; i < Model.Claims.Count;i++)
+                { 
+                    <input  asp-for="userId" hidden/>
+                    <input  asp-for="@Model.Claims[i].ClaimType" hidden/>
+                      <div class="form-check mt-1">
+                       <input asp-for="@Model.Claims[i].IsSelect" class="form-check-input"/>
+                       <label asp-for="@Model.Claims[i].IsSelect" class="form-check-label">@Model.Claims[i].ClaimType </label>
+                   </div>
+                }
+            }
+            else
+            {
+               <p>Not At Moment</p>
+            }
+        </div>
+      <div class="card-footer">
+          <input type="submit" class="btn btn-primary" value="Update" />
+          <a asp-action="EditUser" asp-controller="Adminsitration" asp-route-Id="@Model.userId" class="btn btn-danger">Cancel</a>
+      </div>
+  </card>
+</form>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}
