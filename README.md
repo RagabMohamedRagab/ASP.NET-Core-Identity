@@ -39,4 +39,6 @@
 </a></li>
 <li><a href="https://www.youtube.com/watch?v=Qobkh8gEP6Q&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=92">Model binding not working on submitting razor view with foreach loop
 </a></li>
+<li><a href="https://www.youtube.com/watch?v=5XA4Z-SOif8&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=93">Manage user claims in asp net core
+</a></li>
 </ul>
