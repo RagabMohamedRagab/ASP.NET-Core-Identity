@@ -41,4 +41,8 @@
 </a></li>
 <li><a href="https://www.youtube.com/watch?v=5XA4Z-SOif8&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=93">Manage user claims in asp net core
 </a></li>
+<li><a href="https://www.youtube.com/watch?v=LJQBBvJ6tL0&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=94">Claims based authorization in asp net core
+</a></li>
+<li><a href="https://www.youtube.com/watch?v=Uw2ujXvN3i4&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=95">Role based authorization vs claims based authorization in asp net core
+</a></li>
 </ul>
