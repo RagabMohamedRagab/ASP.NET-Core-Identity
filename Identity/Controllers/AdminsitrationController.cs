@@ -200,6 +200,7 @@ namespace Identity.Controllers {
             return View(_roleManager.Roles);
         }
         [HttpGet]
+        [Authorize(Policy = "DeleteUserPolicy")]
         public async Task<IActionResult> DeleteRole(string Id)
         {
             var role = await _roleManager.FindByIdAsync(Id);
@@ -251,8 +252,9 @@ namespace Identity.Controllers {
             }
             return View(model);
         }
-        [HttpPost]
 
+        [HttpPost]
+      
         public async Task<IActionResult> EditRole(EditRoleVM model)
         {
             var role = await _roleManager.FindByIdAsync(model.Id);
