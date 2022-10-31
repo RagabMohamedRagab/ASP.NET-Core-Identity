@@ -44,12 +44,12 @@ namespace Identity {
                                    .Build();
                 option.Filters.Add(new AuthorizeFilter(policy));
             }).AddXmlSerializerFormatters();
-            services.AddAuthorization(option =>
-              option.AddPolicy("DeleteUserPolicy", option => 
-                                       option.RequireClaim("Delete Usr")
-                                      .RequireClaim("Create User")
-                                       )
-            );
+            services.AddAuthorization(option => 
+            {
+                option.AddPolicy("EditRolePolicy", option => option.RequireClaim("Edit Role"));
+              }
+          ) ;
+            services.ConfigureApplicationCookie(option => option.AccessDeniedPath = new PathString("/Adminsitration/AccessDenied"));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             //services.Configure<IdentityOptions>(options =>
             //{

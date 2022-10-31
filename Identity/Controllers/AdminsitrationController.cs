@@ -21,6 +21,12 @@ namespace Identity.Controllers {
             _userManager = userManager;
         }
         [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+        [HttpGet]
         public async Task<IActionResult> ManageUserClaims(string userId)
         {
             var user =await _userManager.FindByIdAsync(userId);
@@ -230,6 +236,7 @@ namespace Identity.Controllers {
 
 
         [HttpGet]
+        [Authorize(Policy= "EditRolePolicy")]
         public async Task<IActionResult> EditRole(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
@@ -254,7 +261,7 @@ namespace Identity.Controllers {
         }
 
         [HttpPost]
-      
+        [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> EditRole(EditRoleVM model)
         {
             var role = await _roleManager.FindByIdAsync(model.Id);
