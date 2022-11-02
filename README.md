@@ -45,4 +45,6 @@
 </a></li>
 <li><a href="https://www.youtube.com/watch?v=Uw2ujXvN3i4&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=95">Role based authorization vs claims based authorization in asp net core
 </a></li>
+<li><a href="https://www.youtube.com/watch?v=ZgPK51X5BGw&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=104">External identity providers in asp net core
+</a></li>
 </ul>
