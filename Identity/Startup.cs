@@ -49,6 +49,11 @@ namespace Identity {
                 option.AddPolicy("EditRolePolicy", option => option.RequireClaim("Edit Role"));
               }
           ) ;
+            services.AddAuthentication().AddGoogle(option =>
+            {
+                option.ClientId = "23109940075-ejetkev2s5743sa48j7fge1ju96qaul3.apps.googleusercontent.com";
+                option.ClientSecret = "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";
+            });
             services.ConfigureApplicationCookie(option => option.AccessDeniedPath = new PathString("/Adminsitration/AccessDenied"));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             //services.Configure<IdentityOptions>(options =>
