@@ -51,8 +51,8 @@ namespace Identity {
           ) ;
             services.AddAuthentication().AddGoogle(option =>
             {
-                option.ClientId = "23109940075-ejetkev2s5743sa48j7fge1ju96qaul3.apps.googleusercontent.com";
-                option.ClientSecret = "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";
+                option.ClientId = "832775448183-mok9c12r0h8bi0h6e7iv5vpr483s83df.apps.googleusercontent.com";
+                option.ClientSecret = "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";
             });
             services.ConfigureApplicationCookie(option => option.AccessDeniedPath = new PathString("/Adminsitration/AccessDenied"));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
