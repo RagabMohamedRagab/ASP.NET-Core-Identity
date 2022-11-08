@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Authentication;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Identity.DAL.ViewModel {
     public class LoginVM {
@@ -10,6 +12,8 @@ namespace Identity.DAL.ViewModel {
         public string Password { get; set; }
         [Display(Name = "Remmber Me")]
         public bool RemmberMe { get; set; }
+        public string ReturnUrl { get; set; }
+        public IList<AuthenticationScheme> ExternalLogin { get; set; }
     }
 }
 

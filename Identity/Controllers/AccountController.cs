@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Identity.Controllers {
@@ -71,10 +72,15 @@ namespace Identity.Controllers {
         }
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Login(string returnUrl)
+        public async Task<IActionResult> Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginVM model = new LoginVM()
+            {
+                ExternalLogin = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList(),
+                ReturnUrl = returnUrl
+            };
+            return View(model);
         }
 
         [AllowAnonymous]
@@ -115,6 +121,17 @@ namespace Identity.Controllers {
             }
             return View(model);
         }
-     
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AllowAnonymous]
+        public IActionResult ExternalLogin(string provider,string returnUrl)
+        {
+            var redirecturl = Url.Action("ExternalLoginCallback", "Account", new { returnUrl = returnUrl });
+            var properties=_signInManager.ConfigureExternalAuthenticationProperties(provider, redirecturl);
+
+            return new ChallengeResult(provider, properties);
+        }
+
+
     }
 }
