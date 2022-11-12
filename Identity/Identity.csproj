@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="DotNetOpenAuth.InfoCard.UI" Version="4.3.4.13329" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />

@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[11.0.0, )"
             },
+            "DotNetOpenAuth.InfoCard.UI": {
+              "target": "Package",
+              "version": "[4.3.4.13329, )"
+            },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
               "version": "[5.0.17, )"

@@ -255,3 +255,7 @@ C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitratio
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitration\ManageUserClaims.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Adminsitration\AccessDenied.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\pc\Desktop\Identity\Identity\bin\Debug\net5.0\DotNetOpenAuth.Core.dll
+C:\Users\pc\Desktop\Identity\Identity\bin\Debug\net5.0\DotNetOpenAuth.Core.UI.dll
+C:\Users\pc\Desktop\Identity\Identity\bin\Debug\net5.0\DotNetOpenAuth.InfoCard.dll
+C:\Users\pc\Desktop\Identity\Identity\bin\Debug\net5.0\DotNetOpenAuth.InfoCard.UI.dll

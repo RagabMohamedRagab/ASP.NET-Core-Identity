@@ -1,8 +1,10 @@
-﻿using Identity.DAL.ViewModel;
+﻿using DotNetOpenAuth.InfoCard;
+using Identity.DAL.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Identity.Controllers {
@@ -131,7 +133,54 @@ namespace Identity.Controllers {
 
             return new ChallengeResult(provider, properties);
         }
-
+        [AllowAnonymous]
+        public async Task<IActionResult> ExternalLoginCallback(string returnurl=null,string remoteError=null)
+        {
+            returnurl = returnurl ?? Url.Content("~/");
+            LoginVM model = new LoginVM()
+            {
+                ExternalLogin = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList(),
+                ReturnUrl = returnurl
+            };
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"external Provider {remoteError}");
+                return View(nameof(Login), model);
+            }
+            var info =await _signInManager.GetExternalLoginInfoAsync();
+            if(info == null)
+            {
+                ModelState.AddModelError(string.Empty, "Error loading External Information");
+                return View(nameof(Login), model);
+            }
+            var signInUser = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent:false,bypassTwoFactor:true);
+            if(signInUser.Succeeded)
+            {
+                return LocalRedirect(returnurl);
+            }
+            else
+            {
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+                if (email != null)
+                {
+                    var user =await _userManager.FindByEmailAsync(email);
+                    if (user == null)
+                    {
+                        user = new ApplicationUser()
+                        {
+                            Email = info.Principal.FindFirstValue(ClaimTypes.Email),
+                            UserName = info.Principal.FindFirstValue(ClaimTypes.Email)
+                        };
+                      await  _userManager.CreateAsync(user);
+                    }
+                  await  _userManager.AddLoginAsync(user, info);
+                    await _signInManager.SignInAsync(user, isPersistent:false);
+                    return LocalRedirect(returnurl);
+                }
+                ViewBag.Error = "PLZ Contact With Support ragab.rego.com";
+                return View("NotFound");
+            }
+        }
 
     }
 }
