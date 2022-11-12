@@ -48,7 +48,14 @@
 <li><a href="https://www.youtube.com/watch?v=ZgPK51X5BGw&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=104">External identity providers in asp net core
 </a></li>
 <li><a href="https://www.youtube.com/watch?v=V4KqpIX6pdI&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=105">Create google oauth credentials Client Id and Client Secret
-</a></li>
-   <li><a href="[https://www.youtube.com/watch?v=V4KqpIX6pdI&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=105](https://www.youtube.com/watch?v=fgzRnlB992s&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=106)">ASP NET Core google authentication setting up the UI
-</a></li>
+</a>
+
+</li>
+   <li><a href="https://www.youtube.com/watch?v=fgzRnlB992s&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=106">ASP NET Core google authentication setting up the UI
+</a>
+</li>
+   <li><a href="https://www.youtube.com/watch?v=vkB2yaV7_LQ&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=107">ExternalLoginCallback action in asp net core
+</a>
+</li>
+</li>
 </ul>
