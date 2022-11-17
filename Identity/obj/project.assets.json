@@ -140,6 +140,18 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.Facebook/5.0.17": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Authentication.Google/5.0.17": {
         "type": "package",
         "compile": {
@@ -2172,6 +2184,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.xml",
         "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.authentication.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/5.0.17": {
+      "sha512": "m64oIsBoG5ZFeGc5Sqk+gnF0sU3caifi9lc2qKGqS30ih5XE63gs5eR1GFzVn2fWT1DQHjz61jaEFMbJ1lU5FQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.facebook/5.0.17",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.xml",
+        "microsoft.aspnetcore.authentication.facebook.5.0.17.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.facebook.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.Google/5.0.17": {
@@ -6879,6 +6906,7 @@
     "net5.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "DotNetOpenAuth.InfoCard.UI >= 4.3.4.13329",
+      "Microsoft.AspNetCore.Authentication.Facebook >= 5.0.17",
       "Microsoft.AspNetCore.Authentication.Google >= 5.0.17",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.17",
@@ -6941,6 +6969,10 @@
           "DotNetOpenAuth.InfoCard.UI": {
             "target": "Package",
             "version": "[4.3.4.13329, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Facebook": {
+            "target": "Package",
+            "version": "[5.0.17, )"
           },
           "Microsoft.AspNetCore.Authentication.Google": {
             "target": "Package",

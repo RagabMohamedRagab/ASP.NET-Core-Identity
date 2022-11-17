@@ -31,7 +31,7 @@
                         </div>
                     </form>
                 </div>
-                <div style="margin-top:10%"> 
+                <div style="margin-top:10%;display:flex;justify-content:center"  > 
                     @if (Model.ExternalLogin.Count == 0)
                     {
                         <div>Not Account</div>
@@ -40,7 +40,7 @@
                     {
                         foreach (var provider in Model.ExternalLogin)
                         {
-                            <form method="post" asp-action="ExternalLogin" asp-controller="Account" asp-route-returnUrl="@Model.ReturnUrl" style="text-align:center">
+                            <form method="post" asp-action="ExternalLogin" asp-controller="Account" asp-route-returnUrl="@Model.ReturnUrl" style="margin-right:12px">
                                 <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Login with @provider.DisplayName">
                                     @provider.DisplayName
                                 </button>

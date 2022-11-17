@@ -53,6 +53,9 @@ namespace Identity {
             {
                 option.ClientId = "832775448183-mok9c12r0h8bi0h6e7iv5vpr483s83df.apps.googleusercontent.com";
                 option.ClientSecret = "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";
+            }).AddFacebook(option => {
+                option.AppId= "523482549414028";
+                option.AppSecret = "75a4b94195437d2d2074b0da405ba055";
             });
             services.ConfigureApplicationCookie(option => option.AccessDeniedPath = new PathString("/Adminsitration/AccessDenied"));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
