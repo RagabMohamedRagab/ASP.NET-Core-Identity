@@ -57,5 +57,10 @@
    <li><a href="https://www.youtube.com/watch?v=vkB2yaV7_LQ&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=107">ExternalLoginCallback action in asp net core
 </a>
 </li>
+ <li><a href="https://www.youtube.com/watch?v=uAymQERp90w&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=108&t=99s">Register application with facebook
+</a>
+</li>
+ <li><a href="https://www.youtube.com/watch?v=R_1OW8PyiRI&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=109">ASP NET Core facebook authentication
+</a>
 </li>
 </ul>
