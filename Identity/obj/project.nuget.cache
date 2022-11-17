@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TmbMuHFb0oflFlGnGW2PvZ/QUyzwQ26au75NMFkvio5YmQkKFOuokXMcRpWxuBjIF1fEljWTvWyCssqdMPAH+Q==",
+  "dgSpecHash": "ShMtC1xOz1yC1hctnoSAve7s65xxwQOguNwzqQ3N6lX/nMwrtn0So7QSSbiIOcsnkxbk1zBU7Vu5juqcylnH1g==",
   "success": true,
   "projectFilePath": "C:\\Users\\pc\\Desktop\\Identity\\Identity\\Identity.csproj",
   "expectedPackageFiles": [
@@ -63,6 +63,7 @@
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
+    "C:\\Users\\pc\\.nuget\\packages\\microsoft.owin.security.facebook\\4.2.2\\microsoft.owin.security.facebook.4.2.2.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
@@ -175,6 +176,16 @@
       "warningLevel": 1,
       "message": "Package 'DotNetOpenAuth.InfoCard.UI 4.3.4.13329' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
       "libraryId": "DotNetOpenAuth.InfoCard.UI",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Security.Facebook 4.2.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Security.Facebook",
       "targetGraphs": [
         "net5.0"
       ]
