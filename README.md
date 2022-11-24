@@ -63,4 +63,7 @@
  <li><a href="https://www.youtube.com/watch?v=R_1OW8PyiRI&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=109">ASP NET Core facebook authentication
 </a>
 </li>
+ <li><a href="https://www.youtube.com/watch?v=yRP6C7fhAuE&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=113">ASP NET Core email confirmation
+</a>
+</li>
 </ul>
