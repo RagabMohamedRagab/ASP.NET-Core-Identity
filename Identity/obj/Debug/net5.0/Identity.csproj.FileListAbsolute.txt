@@ -271,3 +271,5 @@ C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\staticwebassets\msbuild.b
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Identity.props
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\refint\Identity.dll
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\ConfirmEmail.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\ForgotPassword.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\ForgotPasswordConfirm.cshtml.g.cs

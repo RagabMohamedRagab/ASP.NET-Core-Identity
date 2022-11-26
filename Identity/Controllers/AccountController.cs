@@ -21,6 +21,35 @@ namespace Identity.Controllers {
         }
         [HttpGet]
         [AllowAnonymous]
+        public IActionResult ForgotPassword() {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if(user!=null && await _userManager.IsEmailConfirmedAsync(user))
+                {
+                    var token=await _userManager.GeneratePasswordResetTokenAsync(user);
+                    var restPassword=Url.Action("RestPassword","Account",
+                        new {Email=model.Email,token=token },Request.Scheme);
+                    return View("ForgotPasswordConfirm");
+                }
+                return View("ForgotPasswordConfirm");
+            }
+            return View(model);
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult RestPassword(string Email,string token)
+        {
+            return View();
+        }
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();

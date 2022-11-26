@@ -20,7 +20,9 @@
                             <label asp-for="Password" class="text-info"></label><br>
                             <input asp-for="Password" class="form-control">
                             <span asp-validation-for="Password" style="color:red"></span>
-
+                            <div style="text-align:end">
+                                <a asp-action="ForgotPassword" class="text-danger"> Forgot Password</a>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label asp-for="RemmberMe" class="text-info"><span>@Html.DisplayNameFor(m=>m.RemmberMe)</span> <span><input asp-for="RemmberMe"><span asp-validation-for="RemmberMe"></span></span></label><br>
