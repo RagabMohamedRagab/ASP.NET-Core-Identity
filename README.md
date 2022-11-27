@@ -69,4 +69,7 @@
  <li><a href="https://www.youtube.com/watch?v=0W0yAz7fu04&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=115">Forgot password in asp net core
 </a>
 </li>
+ <li><a href="https://www.youtube.com/watch?v=72Eu92ZkgCg&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=116">Reset password in asp net core
+</a>
+</li>
 </ul>
