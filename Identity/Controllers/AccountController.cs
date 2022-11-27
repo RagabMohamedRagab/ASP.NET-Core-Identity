@@ -34,9 +34,7 @@ namespace Identity.Controllers {
                 if(user!=null && await _userManager.IsEmailConfirmedAsync(user))
                 {
                     var token=await _userManager.GeneratePasswordResetTokenAsync(user);
-                    var restPassword=Url.Action("RestPassword","Account",
-                        new {Email=model.Email,token=token },Request.Scheme);
-                    return View("ForgotPasswordConfirm");
+                    return RedirectToAction(nameof(RestPassword), new { Email = model.Email, token = token });
                 }
                 return View("ForgotPasswordConfirm");
             }
@@ -46,7 +44,39 @@ namespace Identity.Controllers {
         [AllowAnonymous]
         public IActionResult RestPassword(string Email,string token)
         {
+            if(string.IsNullOrEmpty(Email)|| string.IsNullOrEmpty(token))
+            {
+                ModelState.AddModelError(string.Empty, "Email or Token are't Valid");
+            }
             return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RestPassword(RestPasswordVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user =await _userManager.FindByEmailAsync(model.Email);
+                if (user != null)
+                {
+                    var rest =await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+                    if (rest.Succeeded)
+                    {
+                        return View("ForgotPasswordConfirm");
+                    }
+                    else
+                    {
+                        foreach(var error in rest.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                    }
+                    return View(model);
+                }
+                return View("ForgotPasswordConfirm");
+            }
+            return View(model);
         }
         [HttpGet]
         [AllowAnonymous]
