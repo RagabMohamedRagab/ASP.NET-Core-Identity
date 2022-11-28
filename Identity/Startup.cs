@@ -69,6 +69,9 @@ namespace Identity {
             //    options.Password.RequireLowercase = true;
             //    options.Password.RequireUppercase= true;
             //});
+            services.Configure<DataProtectionTokenProviderOptions>(option =>
+             option.TokenLifespan = TimeSpan.FromHours(5)
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
