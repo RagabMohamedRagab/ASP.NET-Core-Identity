@@ -8,7 +8,7 @@ namespace Identity.DAL.ViewModel {
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required]
-        [DataType(DataType.EmailAddress)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         [Display(Name = "Remmber Me")]
         public bool RemmberMe { get; set; }

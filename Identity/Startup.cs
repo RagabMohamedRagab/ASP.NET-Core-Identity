@@ -69,6 +69,7 @@ namespace Identity {
             //    options.Password.RequireLowercase = true;
             //    options.Password.RequireUppercase= true;
             //});
+            // Rest All Token every 5 hours
             services.Configure<DataProtectionTokenProviderOptions>(option =>
              option.TokenLifespan = TimeSpan.FromHours(5)
             );

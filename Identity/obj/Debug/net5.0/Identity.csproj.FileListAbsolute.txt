@@ -274,3 +274,5 @@ C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\Confi
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\ForgotPassword.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\ForgotPasswordConfirm.cshtml.g.cs
 C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\RestPassword.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\ChangePassword.cshtml.g.cs
+C:\Users\pc\Desktop\Identity\Identity\obj\Debug\net5.0\Razor\Views\Account\ChangePasswordConfirm.cshtml.g.cs

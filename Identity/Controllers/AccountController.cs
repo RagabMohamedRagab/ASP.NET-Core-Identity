@@ -20,6 +20,36 @@ namespace Identity.Controllers {
            
         }
         [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ChangePasswordVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user =await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return RedirectToAction(nameof(Login));
+                }
+                var result =await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+                if (!result.Succeeded)
+                {
+                    foreach (IdentityError error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+                await _signInManager.RefreshSignInAsync(user);
+                return View("ChangePasswordConfirm");
+            }
+
+            return View(model);
+        }
+        [HttpGet]
         [AllowAnonymous]
         public IActionResult ForgotPassword() {
             return View();
