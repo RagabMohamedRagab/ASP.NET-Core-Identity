@@ -75,7 +75,5 @@
  <li><a href="https://www.youtube.com/watch?v=gX6CW8c4Huw&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=118">ASP NET Core password reset token lifetime
 </a>
 </li>
- <li><a href="https://www.youtube.com/watch?v=r7VzoLhFLd0&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=121">Change password in asp net core
-</a>
-</li>
+ <li><a href="https://www.youtube.com/watch?v=r7VzoLhFLd0&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=121">Change password in asp net core</a></li>
 </ul>
