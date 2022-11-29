@@ -76,4 +76,5 @@
 </a>
 </li>
  <li><a href="https://www.youtube.com/watch?v=r7VzoLhFLd0&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=121">Change password in asp net core</a></li>
+  <li><a href="https://www.youtube.com/watch?v=jHRWR36UC2s&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=123&t=8s">ASP NET Core account lockout</a></li>
 </ul>
