@@ -237,7 +237,7 @@ namespace Identity.Controllers {
                     {
                         return RedirectToAction(nameof(Index));
                     }
-                    }
+                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login");
             }
             return View(model);
